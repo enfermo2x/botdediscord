@@ -127,22 +127,10 @@ async def stop(ctx):
     await vc.disconnect()
 
 
-# Evento on_ready
+TOKEN = os.getenv("TOKEN")
+
 @bot.event
 async def on_ready():
-    print(f"{bot.user} está conectado")
+    print(f"Bot conectado como {bot.user}")
 
-
-# Ejecutar el bot
-if __name__ == "__main__":
-    def run():
-        app.run(host='0.0.0.0', port=8080)
-
-    app = Flask('')
-
-    @app.route('/')
-    def home():
-        return "El bot está activo."
-
-    Thread(target=run).start()
-    bot.run(os.getenv("MTMxOTAyMjQyODgxNDMxMTQ4NQ.GTwW9b.2KhANJdOBB32YqDQT2PW0fGC1srKQKjwHkoNbs"))
+bot.run(TOKEN)
